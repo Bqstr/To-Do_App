@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name ="args"
+            type ="com.example.myapplication.fragments.update.ChangeFragmentArgs">
+        </variable>
+        <variable
+            name="mViewModel"
+            type="com.example.myapplication.fragments.SharedViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".fragments.update.ChangeFragmentArgs"
+        android:id="@+id/changelayout">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            tools:layout_editor_absoluteX="87dp"
+            tools:layout_editor_absoluteY="49dp">
+
+            <EditText
+                android:text="@{args.currentItem.title}"
+                android:id="@+id/nameInchage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="Name" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="19dp"
+                android:orientation="horizontal">
+
+                <Spinner
+
+                android:id="@+id/spinnerInChange"
+                    android:layout_width="180dp"
+                    android:layout_height="wrap_content"
+                    android:entries="@array/priorities"
+                    android:changeSelectedItem="@{args.currentItem.priority}"
+                    android:gravity="top|left" />
+
+                <ImageView
+                    android:id="@+id/priorityInChange"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="3dp"
+                    android:src="@drawable/gren" />
+            </LinearLayout>
+
+            <EditText
+                android:text="@{args.currentItem.descriptions}"
+                android:id="@+id/desInChange"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="35dp"
+                android:gravity="top|left"
+                android:hint="Descrition"
+
+                android:inputType="textMultiLine"
+                android:paddingStart="10dp" />
+
+            <Button
+                android:id="@+id/change"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@color/brightBlue"
+                android:backgroundTint="@color/brightBlue"
+                android:text="Add"
+
+                />
+        </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_nav"
+    app:startDestination="@id/listFragment">
+
+    <fragment
+        android:id="@+id/listFragment"
+        android:name="com.example.myapplication.fragments.list.ListFragment"
+        android:label="ToDo application"
+        tools:layout="@layout/fragment_list" >
+        <action
+            android:id="@+id/action_listFragment_to_createFragment"
+            app:destination="@id/createFragment"
+            app:enterAnim="@anim/from_rigth"
+            app:exitAnim="@anim/to_left" />
+        <action
+            android:id="@+id/action_listFragment_to_changeFragment"
+            app:destination="@id/changeFragment"
+            app:enterAnim="@anim/from_left" />
+    </fragment>
+    <fragment
+        android:id="@+id/createFragment"
+        android:name="com.example.myapplication.fragments.add.CreateFragment"
+        android:label="Add"
+        tools:layout="@layout/fragment_create" >
+        <argument
+            android:name="createToDo"
+            app:argType="com.example.myapplication.ToDo" />
+        <action
+            android:id="@+id/action_createFragment_to_listFragment2"
+            app:destination="@id/listFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/changeFragment"
+        android:name="com.example.myapplication.fragments.update.ChangeFragment"
+        android:label="Change"
+        tools:layout="@layout/fragment_change" >
+        <action
+            android:id="@+id/action_changeFragment_to_listFragment"
+            app:destination="@id/listFragment" />
+        <argument
+            android:name="currentItem"
+            app:argType="com.example.myapplication.data.ToDoData" />
+    </fragment>
+</navigation>
