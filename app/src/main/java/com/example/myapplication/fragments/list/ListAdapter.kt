@@ -12,8 +12,10 @@ import androidx.core.content.ContextCompat
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.R
+import com.example.myapplication.ToDo
 import com.example.myapplication.data.ToDoData
 import com.example.myapplication.data.models.Priority
+import com.example.myapplication.databinding.RowLayoutBinding
 
 class ListAdapter: RecyclerView.Adapter<ListAdapter.MyViewHolder>() {
 
@@ -27,14 +29,30 @@ companion object{
 
 
 
+
+    class MyViewHolder(private val binding: RowLayoutBinding) : RecyclerView.ViewHolder(binding.root){
+        fun bind(toDoData:ToDoData){
+            binding.toDoData =toDoData
+            binding.executePendingBindings()
+        }
+        companion object{
+            fun from(parent:ViewGroup):MyViewHolder{
+                val layoutBinding =LayoutInflater.from(parent.context)
+                val binding =RowLayoutBinding.inflate(layoutBinding ,parent,false)
+                return MyViewHolder(binding)
+            }
+        }
+
+
+    }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
 
         val itemView =
             LayoutInflater.from(parent.context)
                 .inflate(R.layout.row_layout, parent, false)
-        return MyViewHolder(itemView)
+        return MyViewHolder.from(parent)
     }
-    class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
+
 
 
 
@@ -47,52 +65,12 @@ companion object{
 
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
+        val currentItem =arr[position]
+        holder.bind(currentItem)
 
 
-        holder.itemView.findViewById<TextView>(R.id.title_txt).text =arr[position].title
-        holder.itemView.findViewById<TextView>(R.id.des_txt).text =arr[position].descriptions
-       // holder.itemView.findViewById<CardView>(R.id.row_back).setOnClickListener{
-       var element =holder.itemView.findViewById<ConstraintLayout>(R.id.row_back)
-        element.setOnClickListener{
-            Log.d("vnjdfnvjknvnvjk","kfkdsvkdnvjknvjknvjk")
-            var action= ListFragmentDirections.actionListFragmentToChangeFragment(arr[position]);
-            holder.itemView.findNavController().navigate(action)
-
-        }
 
 
-        when(arr[position].priority){
-            Priority.HIGH-> {
-                holder.itemView.findViewById<CardView>(R.id.priority_txt).setCardBackgroundColor(
-                    ContextCompat.getColor(
-                        holder.itemView.context, R.color.red
-                    )
-                )
-                Log.d("jabd","red")
-
-            }
-         Priority.MEDIUM -> {
-             holder.itemView.findViewById<CardView>(R.id.priority_txt)
-                 .setCardBackgroundColor(
-                     ContextCompat.getColor(
-                         holder.itemView.context, R.color.yellow
-                     )
-                 )
-             Log.d("jabd","yellow")
-
-         }
-           Priority.LOW-> {
-               holder.itemView.findViewById<CardView>(R.id.priority_txt)
-                   .setCardBackgroundColor(
-                       ContextCompat.getColor(
-                           holder.itemView.context, R.color.gren
-                                )
-                            )
-               Log.d("jabd","gren")
-
-           }
-
-                }
 
 
 

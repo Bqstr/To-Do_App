@@ -47,7 +47,6 @@ class ListFragment : Fragment() {
         var recyclerView = view.recycler
         recyclerView.adapter = adapter
         recyclerView.layoutManager =LinearLayoutManager(requireActivity())
-       //Log.d("lastovaya",mToDoViewModel.getSome.get(mToDoViewModel.getSome.size-1).get(1).title)
         mToDoViewModel.getAllData.observe(viewLifecycleOwner, Observer {
 
             data->
@@ -69,7 +68,7 @@ class ListFragment : Fragment() {
 
 
 
-        listeners()
+
 
 
 
@@ -107,8 +106,7 @@ class ListFragment : Fragment() {
     }
 
 
-    fun listeners() {
-    }
+
     fun confirmDelete(){
         val builder =AlertDialog.Builder(requireContext())
         builder.setPositiveButton("Yes"){
@@ -129,9 +127,7 @@ class ListFragment : Fragment() {
     }
 
     override fun onDestroyView() {
-
         super.onDestroyView()
         _view =null
-
     }
 }
