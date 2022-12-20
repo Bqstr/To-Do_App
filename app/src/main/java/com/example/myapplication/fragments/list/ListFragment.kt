@@ -40,6 +40,7 @@ class ListFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        println("Hello , sorry chto musory zdes'")
 
          _view  =FragmentListBinding.inflate(inflater,container,false)
         view.lifecycleOwner =this
