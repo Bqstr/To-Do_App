@@ -73,16 +73,6 @@
                 android:inputType="textMultiLine"
                 android:paddingStart="10dp" />
 
-            <Button
-                android:id="@+id/change"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:background="@color/brightBlue"
-                android:backgroundTint="@color/brightBlue"
-                android:text="Add"
-
-                />
         </LinearLayout>
 
 

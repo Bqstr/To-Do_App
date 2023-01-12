@@ -31,6 +31,9 @@ val getAllData: LiveData<List<ToDoData>> =toDoDao.getAllData()
     suspend fun deleteAll(){
         toDoDao.deleteAll();
     }
+      fun searchData(toSearch:String):LiveData<List<ToDoData>>{
+        return toDoDao.search(toSearch)
+    }
 
 
 

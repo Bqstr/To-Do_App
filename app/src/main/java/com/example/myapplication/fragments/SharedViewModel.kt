@@ -17,12 +17,13 @@ import com.example.myapplication.databinding.FragmentChangeBinding
 
 //application is context
 //this class just contains things that we use but dont want to show(кыскаша мусорка)
+//hotya u menya i tak mnogo takih classov
 class SharedViewModel(application: Application): AndroidViewModel(application) {
     var _binding: FragmentChangeBinding? = null
     val binding get() = _binding!!
 
-
-    val emptyDatabse: MutableLiveData<Boolean> = MutableLiveData(true)
+    //this variable is bind(Data Binding) to the image , when it true ,its visible ...
+    val emptyDatabse: MutableLiveData<Boolean> = MutableLiveData(false)
     fun checkIfDataBaseIsEmpty(toDoData: List<ToDoData>) {
         emptyDatabse.value = toDoData.isEmpty()
     }

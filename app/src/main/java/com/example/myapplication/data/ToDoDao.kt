@@ -32,5 +32,7 @@ interface ToDoDao {
     suspend fun update(id:Int ,name:String,des:String,priority: Priority){
 
     }
+    @Query("Select * FROM todo_table where title like :toSearch")
+     fun search(toSearch:String): LiveData<List<ToDoData>>
 
 }

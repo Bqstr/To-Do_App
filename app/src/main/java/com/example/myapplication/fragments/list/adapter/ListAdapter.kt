@@ -1,20 +1,11 @@
-package com.example.myapplication.fragments.list
+package com.example.myapplication.fragments.list.adapter
 
-import android.util.Log
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
-import androidx.cardview.widget.CardView
-import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.content.ContextCompat
-import androidx.navigation.findNavController
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.R
-import com.example.myapplication.ToDo
 import com.example.myapplication.data.ToDoData
-import com.example.myapplication.data.models.Priority
 import com.example.myapplication.databinding.RowLayoutBinding
 
 class ListAdapter: RecyclerView.Adapter<ListAdapter.MyViewHolder>() {
@@ -36,7 +27,7 @@ companion object{
             binding.executePendingBindings()
         }
         companion object{
-            fun from(parent:ViewGroup):MyViewHolder{
+            fun from(parent:ViewGroup): MyViewHolder {
                 val layoutBinding =LayoutInflater.from(parent.context)
                 val binding =RowLayoutBinding.inflate(layoutBinding ,parent,false)
                 return MyViewHolder(binding)
@@ -84,11 +75,18 @@ companion object{
         return arr.size
     }
     public fun setData(obj:List<ToDoData>){
-        this.arr =obj;
-        refreshing()
+        val toDoDiffUtil =ToDoDiffUtil(arr ,obj)
+        val toDoListResult =DiffUtil.calculateDiff(toDoDiffUtil)
+        this.arr = obj;
+        toDoListResult.dispatchUpdatesTo(this)
+
+        //i used diffUtill bc it's faster
+        //refreshing()
     }
     fun refreshing(){
+        //Just fact: this update all items ,so that  it takes a lot of resources
         notifyDataSetChanged()
+
     }
 
 

@@ -20,6 +20,8 @@ private val repository : ToDoRepository
 
     repository= ToDoRepository(toDoDao)
     getAllData =repository.getAllData
+
+
     }
     fun insertData(toDoData: ToDoData){
         //wooooo its coroutines
@@ -42,6 +44,9 @@ private val repository : ToDoRepository
         {
             repository.deleteAll();
         }
+    }
+     fun searchData(toSearch:String) : LiveData<List<ToDoData>>{
+        return repository.searchData(toSearch)
     }
 
 

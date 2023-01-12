@@ -14,16 +14,16 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="81dp"
         android:layout_margin="10dp"
         android:theme="@style/ThemeOverlay.AppCompat.Light">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:sendDataToUpdateList="@{toDoData}"
             android:id="@+id/row_back"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/item_back"
+            android:sendDataToUpdateList="@{toDoData}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
 
@@ -49,12 +49,12 @@
                 app:layout_constraintVertical_bias="0.04" />
 
             <androidx.cardview.widget.CardView
-                android:parsePriorityToColor="@{toDoData.priority}"
                 android:id="@+id/priority_txt"
                 android:layout_width="16dp"
                 android:layout_height="16dp"
                 android:layout_marginTop="12dp"
                 android:layout_marginEnd="24dp"
+                android:parsePriorityToColor="@{toDoData.priority}"
                 app:cardBackgroundColor="@color/red"
                 app:cardCornerRadius="100dp"
                 app:layout_constraintEnd_toEndOf="parent"
