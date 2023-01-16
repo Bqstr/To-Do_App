@@ -63,6 +63,20 @@ class BindingAdapter {
             }
         }
 
+        @RequiresApi(Build.VERSION_CODES.M)
+        @androidx.databinding.BindingAdapter("android:parsePriorityToColorGradient")
+        @JvmStatic
+        fun parsePriorityToColorGradient(card:CardView,priority: Priority){
+            when(priority){
+                Priority.HIGH ->{ card.setBackgroundResource(R.drawable.gradient)}
+                //Priority.MEDIUM ->{ card.setCardBackgroundColor(card.context.getColor(R.color.yellow)) }
+                //Priority.LOW ->{ card.setCardBackgroundColor(card.context.getColor(R.color.gren)) }
+
+            }
+        }
+
+
+
         @androidx.databinding.BindingAdapter("android:sendDataToUpdateList")
         @JvmStatic
         fun sendDataToUpdateList(view :ConstraintLayout,toDoData:ToDoData){

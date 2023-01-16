@@ -41,6 +41,7 @@ class ListFragment : Fragment(),SearchView.OnQueryTextListener {
          _view  =FragmentListBinding.inflate(inflater,container,false)
         view.lifecycleOwner =this
         view.mSharedViewModel =mSharedViewModel
+
         setUprecyclerView()
         mToDoViewModel.getAllData.observe(viewLifecycleOwner, Observer {
 
