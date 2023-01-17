@@ -10,6 +10,8 @@ import com.example.myapplication.data.models.Priority
 class ToDoRepository(private val toDoDao: ToDoDao) {
 
 val getAllData: LiveData<List<ToDoData>> =toDoDao.getAllData()
+val sortToLowest:LiveData<List<ToDoData>> =toDoDao.sortToLowest()
+val sorttoHighest:LiveData<List<ToDoData>> =toDoDao.sortToHighest()
 
 
 
@@ -34,6 +36,9 @@ val getAllData: LiveData<List<ToDoData>> =toDoDao.getAllData()
       fun searchData(toSearch:String):LiveData<List<ToDoData>>{
         return toDoDao.search(toSearch)
     }
+
+
+
 
 
 

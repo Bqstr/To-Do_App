@@ -7,7 +7,10 @@
     android:icon="@drawable/ic_baseline_search_24"
     android:iconTint="@color/white"
     app:showAsAction="ifRoom"
-    app:actionViewClass="androidx.appcompat.widget.SearchView" />
+    app:actionViewClass="androidx.appcompat.widget.SearchView"
+    />
+
+
 <group>
     <item android:id="@+id/menySortBy"
         android:title="Sort By">
@@ -18,9 +21,21 @@
         </menu>
 
     </item>
-    </group>
-<item  android:id="@+id/delete_all" android:title="Delete All"
-    app:showAsAction="never">
 
-</item>
+    </group>
+
+    <item android:id="@+id/changeLayout"
+        android:title="Change Layout">
+        <menu>
+            <item android:title="Grid Layout" android:id="@+id/fridLayout"></item>
+            <item android:title="Lineral Layout" android:id="@+id/linerlLayout"></item>
+
+        </menu>
+
+    </item>
+
+    <item  android:id="@+id/delete_all" android:title="Delete All"
+    app:showAsAction="never"></item>
+
+
 </menu>

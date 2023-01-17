@@ -16,10 +16,14 @@ class ToDoViewModel(application:Application): AndroidViewModel(application) {
 private val repository : ToDoRepository
     private val toDoDao = ToDoDatabase.getDatabase(application).toDoDao()
      val getAllData :LiveData<List<ToDoData>>
+    val sortToLowest:LiveData<List<ToDoData>>
+    val sorttoHighest:LiveData<List<ToDoData>>
     init {
 
     repository= ToDoRepository(toDoDao)
     getAllData =repository.getAllData
+    sortToLowest =repository.sortToLowest
+    sorttoHighest =repository.sorttoHighest
 
 
     }
@@ -48,6 +52,8 @@ private val repository : ToDoRepository
      fun searchData(toSearch:String) : LiveData<List<ToDoData>>{
         return repository.searchData(toSearch)
     }
+
+
 
 
 

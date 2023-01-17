@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.*
 import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
@@ -56,6 +57,9 @@ lateinit var binding :FragmentCreateBinding
 //            //val action = CreateFragmentDi.actionExamInformationFragmentToExamScoreFragment(exam)
 //           // findNavController().navigate(123)
 //        }
+
+        binding.name.requestFocus()
+
 
         return binding.root
     }

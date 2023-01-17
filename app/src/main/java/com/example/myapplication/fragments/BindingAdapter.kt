@@ -1,6 +1,5 @@
 package com.example.myapplication.fragments
 
-import android.graphics.Color.red
 import android.os.Build
 import android.view.View
 import android.widget.Spinner
@@ -11,7 +10,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.navigation.findNavController
 import com.example.myapplication.R
 import com.example.myapplication.data.ToDoData
-import com.example.myapplication.data.ToDoDatabase
 import com.example.myapplication.data.models.Priority
 import com.example.myapplication.databinding.FragmentChangeBinding
 import com.example.myapplication.fragments.list.ListFragmentDirections
@@ -68,9 +66,9 @@ class BindingAdapter {
         @JvmStatic
         fun parsePriorityToColorGradient(card:CardView,priority: Priority){
             when(priority){
-                Priority.HIGH ->{ card.setBackgroundResource(R.drawable.gradient)}
-                //Priority.MEDIUM ->{ card.setCardBackgroundColor(card.context.getColor(R.color.yellow)) }
-                //Priority.LOW ->{ card.setCardBackgroundColor(card.context.getColor(R.color.gren)) }
+                Priority.HIGH ->{ card.setBackgroundResource(R.drawable.red_gradient)}
+                Priority.MEDIUM ->{ card.setBackgroundResource(R.drawable.yellow_gradient)}
+                Priority.LOW ->{ card.setBackgroundResource(R.drawable.green_gradient)}
 
             }
         }
