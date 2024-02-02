@@ -1,2 +1,4 @@
 # To-Do_App
-Basic To-Do application with using Room libriary , Live Data and Navigation Components.
+Basic To-Do application with using ViewModel ,LiveData ,RoomDB ,Navigation Components, DiffUtil. 
+
+ 
